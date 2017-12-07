@@ -23,11 +23,13 @@ document.body.addEventListener('keyup', function(e) {
 
 	if(keyPressed === randomLetter){
 		wins++;
+		document.getElementById("wins").textContent = wins;
 	} else if(keyPressed != randomLetter){ 
 		guessesLeft--;
 		document.getElementById("guessesLeft").textContent = guessesLeft;
 	} else if(guessesLeft === 0){
 		losses++;
+		document.getElementById("losses").textContent = losses;
 	}
 });
 
