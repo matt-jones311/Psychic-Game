@@ -17,14 +17,15 @@ var randomLetter = computerChoices[Math.floor(Math.random() * computerChoices.le
 document.body.addEventListener('keyup', function(e) {
 
 	var keyPressed = e.key;
-	guessesSoFar.push(keyPressed);
+		var guessesSoFar = document.getElementById("guessesSoFar");
+	guessesSoFar.textContent += keyPressed;
 
 	if(keyPressed === randomLetter){
 		wins++; 
 		var winElement = document.getElementById("wins");
 		winElement.textContent = wins;
 
-		guessesLeft = 5;
+		guessesLeft = 0;
 		var guessesLeftElement = document.getElementById("guessesLeft");
 		guessesLeftElement.textContent = guessesLeft;
 
