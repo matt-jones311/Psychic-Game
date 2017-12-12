@@ -55,6 +55,11 @@ document.body.addEventListener('keyup', function(e) {
         computerChoices[Math.floor(Math.random() * computerChoices.length)]
 
         
+        guessesSoFar = "";
+        var guessesSoFarElement = document.getElementById("guessesSoFar");
+        guessesSoFarElement.textContent = guessesSoFar;
+
+        
 
 
 
