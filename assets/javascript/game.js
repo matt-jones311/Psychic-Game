@@ -1,7 +1,3 @@
-
-
-
-
 var wins = 0;
 
 var losses = 0;
@@ -10,63 +6,89 @@ var guessesLeft = 5;
 
 var guessesSoFar = "";
 
-var computerChoices = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
+var computerChoices = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
 var randomLetter = computerChoices[Math.floor(Math.random() * computerChoices.length)];
 
+
 document.body.addEventListener('keyup', function(e) {
 
-	var keyPressed = e.key;
-		var guessesSoFar = document.getElementById("guessesSoFar");
-	guessesSoFar.textContent += keyPressed;
+    var keyPressed = e.key;
+    var guessesSoFar = document.getElementById("guessesSoFar");
+    guessesSoFar.textContent += keyPressed;
 
-	if(keyPressed === randomLetter){
-		wins++; 
-		var winElement = document.getElementById("wins");
-		winElement.textContent = wins;
+    if (keyPressed === randomLetter) {
+        wins++;
+        var winElement = document.getElementById("wins");
+        winElement.textContent = wins;
 
-		guessesLeft = 0;
-		var guessesLeftElement = document.getElementById("guessesLeft");
-		guessesLeftElement.textContent = guessesLeft;
+        guessesLeft = 5;
+        var guessesLeftElement = document.getElementById("guessesLeft");
+        guessesLeftElement.textContent = guessesLeft;
 
-		guessesSoFar = "";
-		var guessesSoFarElement = document.getElementById("guessesSoFar");
-		guessesSoFarElement.textContent = guessesSoFar;
+        guessesSoFar = "";
+        var guessesSoFarElement = document.getElementById("guessesSoFar");
+        guessesSoFarElement.textContent = guessesSoFar;
 
-}else{
+        computerChoices[Math.floor(Math.random() * computerChoices.length)]
 
-		guessesLeft--;
-		var guessesLeftElement = document.getElementById("guessesLeft");
-		guessesLeftElement.textContent = guessesLeft;
-
-		guessesSoFar += keyPressed
-
-		
+        
 
 
+// reset random letter on win - getRandomLetter function
+    } else {
+
+        guessesLeft--;
+        var guessesLeftElement = document.getElementById("guessesLeft");
+        guessesLeftElement.textContent = guessesLeft;
+
+        if (guessesLeft === 0) {
+            losses++;
+
+            var lossesElement = document.getElementById("losses");
+            lossesElement.textContent = losses;
+
+             guessesLeft = 5;
+        var guessesLeftElement = document.getElementById("guessesLeft");
+        guessesLeftElement.textContent = guessesLeft;
+
+        computerChoices[Math.floor(Math.random() * computerChoices.length)]
+
+        
 
 
 
-}
+
+        }
 
 
-/*	var keyPressed = e.key;
-	
-	var guessesSoFar = document.getElementById("guessesSoFar");
-	guessesSoFar.textContent += keyPressed;
-	console.log(guessesSoFar);
 
-	if(keyPressed === randomLetter){
-		wins++;
-		document.getElementById("wins").textContent = wins; 
-	} else if(keyPressed != randomLetter){ 
-		guessesLeft--;
-		document.getElementById("guessesLeft").textContent = guessesLeft;
-	} else if(guessesLeft === 0){
-		losses++;
-		document.getElementById("losses").textContent = losses;
-	}
-*/
+
+
+
+
+
+
+    }
+
+
+    /*	var keyPressed = e.key;
+    	
+    	var guessesSoFar = document.getElementById("guessesSoFar");
+    	guessesSoFar.textContent += keyPressed;
+    	console.log(guessesSoFar);
+
+    	if(keyPressed === randomLetter){
+    		wins++;
+    		document.getElementById("wins").textContent = wins; 
+    	} else if(keyPressed != randomLetter){ 
+    		guessesLeft--;
+    		document.getElementById("guessesLeft").textContent = guessesLeft;
+    	} else if(guessesLeft === 0){
+    		losses++;
+    		document.getElementById("losses").textContent = losses;
+    	}
+    */
 });
 
 /* If keyPressed is not = to randomLetter and guessesLeft = 0 then losses increases by 1
@@ -78,5 +100,3 @@ document.body.addEventListener('keyup', function(e) {
 	You're really close. You're getting too much logic mixed together. I'll work you through it when we get a chance to
 
    */
-
- 
